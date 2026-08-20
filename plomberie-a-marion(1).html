@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plomberie A. Marion Inc. — Urgence 24/7 à Saint-Félix-de-Valois</title>
+<meta name="description" content="Plomberie A. Marion Inc. — Plombier résidentiel et commercial, urgence 24h/24 7j/7 à Saint-Félix-de-Valois, QC. Appelez le 450-821-8868.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1D26;
+    --steel:#122B37;
+    --steel-2:#1B3B49;
+    --pipe:#3E7C97;
+    --pipe-dim:#2A5A70;
+    --brass:#B8823C;
+    --brass-light:#D9A45C;
+    --paper:#E9EDEA;
+    --paper-2:#F4F6F3;
+    --alert:#C1442D;
+    --ink-text:#12232B;
+    --line:rgba(233,237,234,0.14);
+    --line-dark:rgba(11,29,38,0.12);
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper-2);
+    color:var(--ink-text);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    margin:0;
+    color:inherit;
+  }
+
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--brass-light);
+    outline-offset:3px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(11,29,38,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+    color:var(--paper-2);
+    gap:20px;
+  }
+  .brand{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+  }
+  .brand .name{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+  }
+  .brand .name span{color:var(--brass-light);}
+  .brand .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--pipe);
+    margin-top:2px;
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+  }
+  nav a{
+    text-decoration:none;
+    font-size:0.86rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--paper);
+    opacity:0.85;
+    border-bottom:1px solid transparent;
+    padding-bottom:3px;
+    transition:opacity .2s, border-color .2s;
+  }
+  nav a:hover{opacity:1; border-color:var(--brass-light);}
+  .nav-links{display:flex; gap:26px;}
+  .btn-call{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    background:var(--brass);
+    color:var(--ink);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:0.86rem;
+    padding:10px 16px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    letter-spacing:0.02em;
+    white-space:nowrap;
+    transition:background .2s;
+  }
+  .btn-call:hover{background:var(--brass-light);}
+  .btn-call svg{width:15px; height:15px; flex:none;}
+
+  .menu-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper-2);
+    overflow:hidden;
+    padding:96px 0 80px;
+  }
+  .hero .wrap{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    border:1px solid rgba(217,164,92,0.4);
+    padding:7px 12px;
+    border-radius:20px;
+    margin-bottom:26px;
+  }
+  .badge::before{
+    content:"";
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--alert);
+    box-shadow:0 0 0 0 rgba(193,68,45,0.7);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(193,68,45,0.55);}
+    70%{box-shadow:0 0 0 8px rgba(193,68,45,0);}
+    100%{box-shadow:0 0 0 0 rgba(193,68,45,0);}
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.4vw, 3.7rem);
+    line-height:1.04;
+    font-weight:600;
+    max-width:11.5ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--brass-light);
+  }
+  .hero p.lede{
+    margin:26px 0 34px;
+    font-size:1.08rem;
+    color:rgba(244,246,243,0.82);
+    max-width:46ch;
+  }
+  .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:18px;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    background:var(--brass);
+    color:var(--ink);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:0.95rem;
+    padding:15px 24px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    letter-spacing:0.02em;
+    transition:background .2s, transform .2s;
+  }
+  .btn-primary:hover{background:var(--brass-light); transform:translateY(-1px);}
+  .btn-primary svg{width:17px; height:17px;}
+  .hero-schedule{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--pipe);
+    letter-spacing:0.03em;
+  }
+  .hero-schedule b{color:var(--paper-2); font-weight:600;}
+
+  /* pipe diagram */
+  .pipe-art{
+    position:relative;
+    z-index:1;
+  }
+  .pipe-art svg{width:100%; height:auto; display:block;}
+  .pipe-flow{
+    stroke-dasharray:2 14;
+    animation:flow 1.6s linear infinite;
+  }
+  @keyframes flow{
+    to{stroke-dashoffset:-32;}
+  }
+  .joint-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    fill:rgba(244,246,243,0.55);
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:88px 0;}
+  .section-head{
+    max-width:640px;
+    margin:0 0 52px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:block;
+    margin-bottom:14px;
+  }
+  .section-light .eyebrow{color:var(--pipe-dim);}
+  .section h2{
+    font-size:clamp(1.7rem, 3vw, 2.3rem);
+    font-weight:600;
+    color:var(--ink-text);
+  }
+  .section-dark h2{color:var(--paper-2);}
+  .section-head p{
+    margin-top:16px;
+    color:#425058;
+    font-size:1rem;
+    max-width:56ch;
+  }
+  .section-dark .section-head p{color:rgba(244,246,243,0.72);}
+
+  /* ---------- SERVICES ---------- */
+  .section-light{background:var(--paper-2);}
+  .service-groups{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+  }
+  .service-group{
+    background:var(--paper-2);
+    padding:34px 36px;
+  }
+  .service-group h3{
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--ink-text);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:6px;
+  }
+  .service-group h3 svg{width:18px; height:18px; flex:none; color:var(--brass);}
+  .group-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--pipe-dim);
+    margin-bottom:18px;
+    display:block;
+  }
+  .service-group ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    columns:1;
+  }
+  .service-group li{
+    position:relative;
+    padding:9px 0 9px 20px;
+    font-size:0.94rem;
+    border-top:1px solid var(--line-dark);
+    color:#2c383e;
+  }
+  .service-group li:first-child{border-top:none;}
+  .service-group li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:18px;
+    width:8px;
+    height:2px;
+    background:var(--brass);
+  }
+
+  /* ---------- ABOUT / SCHEDULE ---------- */
+  .section-dark{background:var(--ink); color:var(--paper-2);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:start;
+  }
+  .about-grid p{
+    color:rgba(244,246,243,0.78);
+    font-size:1.02rem;
+    margin:0 0 18px;
+  }
+  .about-points{
+    list-style:none;
+    margin:26px 0 0;
+    padding:0;
+    display:grid;
+    gap:14px;
+  }
+  .about-points li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:0.94rem;
+    color:rgba(244,246,243,0.85);
+  }
+  .about-points svg{width:16px; height:16px; margin-top:3px; flex:none; color:var(--brass-light);}
+
+  .schedule-card{
+    background:var(--steel);
+    border:1px solid var(--line);
+    padding:40px 36px;
+    text-align:center;
+  }
+  .schedule-card .big{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:3.6rem;
+    color:var(--brass-light);
+    line-height:1;
+    letter-spacing:0.01em;
+  }
+  .schedule-card .sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--pipe);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-top:10px;
+  }
+  .schedule-card hr{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:26px 0;
+  }
+  .schedule-card p{
+    font-size:0.92rem;
+    color:rgba(244,246,243,0.72);
+    margin:0 0 20px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+  }
+  .contact-card{
+    background:var(--paper-2);
+    padding:40px 40px;
+  }
+  .contact-card h3{
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--pipe-dim);
+    font-family:'IBM Plex Mono', monospace;
+    margin-bottom:16px;
+  }
+  .contact-line{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    margin-bottom:18px;
+  }
+  .contact-line svg{width:19px; height:19px; margin-top:2px; flex:none; color:var(--brass);}
+  .contact-line a, .contact-line span{
+    font-size:1.02rem;
+    color:var(--ink-text);
+    text-decoration:none;
+  }
+  .contact-line a{border-bottom:1px solid var(--line-dark);}
+  .contact-line a:hover{border-color:var(--brass);}
+  .contact-line small{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--pipe-dim);
+    margin-bottom:4px;
+  }
+  .directions{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--pipe-dim);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .directions:hover{color:var(--ink-text); border-color:var(--brass);}
+  .contact-card.emergency{
+    background:var(--ink);
+    color:var(--paper-2);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .contact-card.emergency h3{color:var(--pipe);}
+  .contact-card.emergency p{
+    color:rgba(244,246,243,0.75);
+    font-size:0.98rem;
+    margin:0 0 24px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    border-top:1px solid var(--line);
+    padding:34px 0;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    color:rgba(244,246,243,0.6);
+    font-size:0.82rem;
+  }
+  .footer-row .name{color:var(--paper-2); font-weight:600;}
+  .footer-row a{color:var(--pipe); text-decoration:none;}
+  .footer-row a:hover{color:var(--brass-light);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 920px){
+    .hero .wrap{grid-template-columns:1fr; gap:44px;}
+    .pipe-art{order:-1; max-width:420px;}
+    .about-grid{grid-template-columns:1fr;}
+    .service-groups{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+  }
+  @media (max-width: 560px){
+    .wrap{padding:0 20px;}
+    .section{padding:64px 0;}
+    .header-row{padding:14px 20px;}
+    .schedule-card .big{font-size:2.8rem;}
+    .service-group, .contact-card{padding:28px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-row">
+    <div class="brand">
+      <span class="name">Plomberie A. <span>Marion</span> Inc.</span>
+      <span class="tag">Saint-Félix-de-Valois, QC</span>
+    </div>
+    <nav>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#horaire">Horaire</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn-call" href="tel:14508218868">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        450-821-8868
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge">Ligne d'urgence ouverte maintenant</span>
+      <h1>Une fuite ne prévient jamais.<br><em>Nous, on répond.</em></h1>
+      <p class="lede">Plomberie A. Marion intervient 24 heures sur 24, 7 jours sur 7, pour les besoins résidentiels et commerciaux de Saint-Félix-de-Valois et des environs.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="tel:14508218868">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Appeler le 450-821-8868
+        </a>
+        <span class="hero-schedule"><b>24H/24 · 7J/7</b> — aucun jour férié</span>
+      </div>
+    </div>
+
+    <div class="pipe-art" aria-hidden="true">
+      <svg viewBox="0 0 460 380" fmlns="http://www.w3.org/2000/svg">
+        <path d="M30 40 H180 C210 40 210 70 240 70 H320 C350 70 350 110 380 110 V190 C380 220 350 220 350 250 V310" fill="none" stroke="var(--pipe-dim)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M30 40 H180 C210 40 210 70 240 70 H320 C350 70 350 110 380 110 V190 C380 220 350 220 350 250 V310" fill="none" stroke="var(--brass-light)" stroke-width="2.5" stroke-linecap="round" class="pipe-flow"/>
+        <path d="M60 180 H160 C190 180 190 140 220 140 H260 V240 C260 270 290 270 290 300" fill="none" stroke="var(--pipe-dim)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M60 180 H160 C190 180 190 140 220 140 H260 V240 C260 270 290 270 290 300" fill="none" stroke="var(--brass-light)" stroke-width="2.5" stroke-linecap="round" class="pipe-flow" style="animation-delay:-.8s"/>
+
+        <circle cx="30" cy="40" r="7" fill="var(--brass)"/>
+        <circle cx="240" cy="70" r="7" fill="var(--brass)"/>
+        <circle cx="380" cy="110" r="7" fill="var(--brass)"/>
+        <circle cx="350" cy="250" r="7" fill="var(--brass)"/>
+        <circle cx="60" cy="180" r="7" fill="var(--brass)"/>
+        <circle cx="220" cy="140" r="7" fill="var(--brass)"/>
+        <circle cx="290" cy="300" r="7" fill="var(--brass)"/>
+
+        <g transform="translate(350,310)">
+          <rect x="-16" y="-16" width="32" height="32" rx="2" fill="none" stroke="var(--pipe)" stroke-width="2"/>
+          <path d="M-16 0 H16 M0 -16 V16" stroke="var(--pipe)" stroke-width="2"/>
+        </g>
+
+        <text x="10" y="30" class="joint-label">RÉSIDENTIEL</text>
+        <text x="248" y="60" class="joint-label">COMMERCIAL</text>
+        <text x="270" y="130" class="joint-label">DRAIN</text>
+        <text x="358" y="230" class="joint-label">URGENCE</text>
+        <text x="325" y="345" class="joint-label">VALVE ARC</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Nos services</span>
+      <h2>Tout ce qu'il faut, sous un même appel</h2>
+      <p>De la fuite qui presse à l'installation complète, notre équipe couvre l'ensemble des besoins en plomberie résidentielle et commerciale, incluant les urgences hors des heures normales.</p>
+    </div>
+
+    <div class="service-groups">
+      <div class="service-group">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>Urgence 24/7</h3>
+        <span class="group-note">Réponse immédiate, jour et nuit</span>
+        <ul>
+          <li>Plombier d'urgence</li>
+          <li>Réparation de plomberie</li>
+        </ul>
+      </div>
+
+      <div class="service-group">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Résidentiel</h3>
+        <span class="group-note">Maisons et copropriétés</span>
+        <ul>
+          <li>Plombier résidentiel</li>
+          <li>Plomberie résidentielle</li>
+          <li>Plomberie de lavabo</li>
+          <li>Réparation de lavabo</li>
+          <li>Réparation de bain</li>
+          <li>Réparation de bidet</li>
+          <li>Réparation de robinet</li>
+          <li>Réparation d'évier de cuisine</li>
+          <li>Réparation de toilettes</li>
+        </ul>
+      </div>
+
+      <div class="service-group">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V4h8v3M8 12h.01M12 12h.01M16 12h.01"/></svg>Commercial</h3>
+        <span class="group-note">Commerces, immeubles et institutions</span>
+        <ul>
+          <li>Plombier commercial</li>
+          <li>Plomberie commerciale</li>
+          <li>Entrepreneur en plomberie</li>
+        </ul>
+      </div>
+
+      <div class="service-group">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 7-7.58 7-12A7 7 0 0 0 5 10c0 4.42 3 8 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>Drains &amp; dispositifs</h3>
+        <span class="group-note">Écoulement et conformité</span>
+        <ul>
+          <li>Réparation de drain</li>
+          <li>Débouchage de drain</li>
+          <li>Dispositif anti-refoulement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="a-propos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">À propos</span>
+      <h2>Une équipe locale, disponible en tout temps</h2>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p>Plomberie A. Marion Inc. dessert Saint-Félix-de-Valois et les municipalités avoisinantes pour tous les travaux de plomberie résidentielle et commerciale. Chaque appel, qu'il s'agisse d'un robinet qui coule ou d'une urgence en pleine nuit, est traité avec le même sérieux.</p>
+        <p>Notre équipe se déplace avec l'équipement nécessaire pour diagnostiquer et régler le problème dès la première visite, dans le respect des normes en vigueur.</p>
+        <ul class="about-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Service d'urgence sans jour férié</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Résidentiel et commercial, un seul entrepreneur</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Basée à Saint-Félix-de-Valois, proche de vous</li>
+        </ul>
+      </div>
+
+      <div class="schedule-card" id="horaire">
+        <div class="big mono">24/7</div>
+        <div class="sub">Horaire d'ouverture</div>
+        <hr>
+        <p>Urgences acceptées jour et nuit, week-ends et jours fériés compris.</p>
+        <a class="btn-primary" href="tel:14508218868">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          450-821-8868
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Contact</span>
+      <h2>Joindre Plomberie A. Marion</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Coordonnées</h3>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>
+            <small>Adresse</small>
+            <a href="https://www.google.com/maps/search/?api=1&query=4788+rue+Principale+GD%2C+Saint-F%C3%A9lix-de-Valois+QC+J0K+2M0" target="_blank" rel="noopener">4788, rue Principale GD<br>Saint-Félix-de-Valois (Québec) J0K 2M0</a>
+            <a class="directions" href="https://www.google.com/maps/search/?api=1&query=4788+rue+Principale+GD%2C+Saint-F%C3%A9lix-de-Valois+QC+J0K+2M0" target="_blank" rel="noopener">
+              Obtenir l'itinéraire →
+            </a>
+          </span>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>
+            <small>Téléphone</small>
+            <a href="tel:14508218868">450-821-8868</a>
+          </span>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>
+            <small>Horaire</small>
+            <span>24 heures sur 24, 7 jours sur 7</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="contact-card emergency">
+        <h3>Urgence en cours ?</h3>
+        <p>Une fuite active, un dégât d'eau ou un drain bloqué ne peuvent pas attendre. Notre ligne d'urgence est ouverte en ce moment.</p>
+        <a class="btn-primary" href="tel:14508218868">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Appeler maintenant
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span><span class="name">Plomberie A. Marion Inc.</span> — 4788, rue Principale GD, Saint-Félix-de-Valois (Québec) J0K 2M0</span>
+    <a href="tel:14508218868">450-821-8868</a>
+  </div>
+</footer>
+
+</body>
+</html>
